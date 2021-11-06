@@ -45,7 +45,6 @@
   // 全出費リスト、貯金残高、住居費リスト、保険料リスト
   let year = [];
   let incomeList = [];
-  let educationCostList = [];
   let totalEducationCostList = [];
   let totalCostList = [];
   let savingsList = [];
@@ -65,9 +64,43 @@
 
 
   let pension = {0:78.1700, 1:172.5132, 2:78.1700};
-  let aveEducationCost = {'0':0, '1':0, '2':0, '3':3.84, '4':58.5516, '5':60.4716, '6':62.3916, '7':43.6481, '8':45.5681, '9':47.4881, '10':49.4081, '11':51.3281, '12':53.2481, '13':71.8797, '14':73.7997, '15':75.7197, '16':125.7911, '17':127.7111, '18':129.6311, '19':116.6922, '20':78.5581, '21':78.5581, '22':78.5581}
+  let aveEducationCost = {'0':0, '1':0, '2':0, '3':3.84, '4':58.5516, '5':60.4716, '6':62.3916, '7':43.6481, '8':45.5681, '9':47.4881, '10':49.4081, '11':51.3281, '12':53.2481, '13':71.8797, '14':73.7997, '15':75.7197, '16':125.7911, '17':127.7111, '18':129.6311, '19':116.6922, '20':78.5581, '21':78.5581, '22':78.5581};
+
+
+  // 教育費の計算
+  for (n = userAge; n < 90; n++) {
+    totalEducationCostList.push(0);
+  }
+  totalEducationCostList[0] += educationCostYear;
+  for (i = 0; i < childeNumber; i++) {
+    let x = 0;
+    for (k = childeAgeList[i]; k < 23; k++) {
+      x++;
+      totalEducationCostList[x] += Math.round(aveEducationCost[k]);
+    }
+  }
+
+
+  // 家賃の計算
+  if (house === 0) {
+    for (i = userAge; i < 90; i++) {
+      houseCostList.push(houseCostYear);
+    }
+  } else if (house === 1) {
+    let x = 0;
+    for (i = userAge; i < 90; i++) {
+      if (x < houseLoanYears) {
+        houseCostList.push(houseCostYear);
+        x++;
+      } else {
+        houseCostList.push(0);
+        x++;
+      }
+    }
+  }
 
 
   
+
 
 }
