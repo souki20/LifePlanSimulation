@@ -76,7 +76,7 @@
     let x = 0;
     for (k = childeAgeList[i]; k < 23; k++) {
       x++;
-      totalEducationCostList[x] += Math.round(aveEducationCost[k]);
+      totalEducationCostList[x] += aveEducationCost[k];
     }
   }
 
@@ -96,6 +96,43 @@
         houseCostList.push(0);
         x++;
       }
+    }
+  }
+
+
+  // 貯蓄残高の計算関数
+  const savings = () => {
+    let savings = income - totalCost;
+    if (savings <= savingsPossible) {
+      nowSavings += savings;
+      savingsList.push(nowSavings);
+    } else {
+      nowSavings += savingsPossibleYear;
+      savingsList.push(nowSavings);
+    }
+  }
+  const savingsRetire = () => {
+    let savings = income - totalCost;
+    nowSavings += savings;
+    savingsList.push(nowSavings);
+  }
+
+
+  // 自営業者の収入計算関数
+  const userSelfemploy = () => {
+    if (userAge <= userRetireAge) {
+      userSelfemployIncomeList.push(userIncome);
+      userIncome *= 1.02;
+    } else {
+      userSelfemployIncomeList.push(pension[spouseBusiness]);
+    }
+  }
+  const spouseSelfemploy = () => {
+    if (spouseAge <= spouseRetireAge) {
+      spouseSelfemployIncomeList.push(spouseIncome);
+      spouseIncome *= 1.02;
+    } else {
+      spouseSelfemployIncomeList.push(pension[spouseBusiness]);
     }
   }
 
