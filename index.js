@@ -50,6 +50,8 @@
   let savingsList = [];
   let houseCostList = [];
   let insuranceCostList = [];
+  let userSelfemployIncomeList = [];
+  let spouseSelfemployIncomeList = [];
 
 
   // 月額→年額
@@ -137,7 +139,9 @@
   }
 
 
+
   
+
 
 
 }
