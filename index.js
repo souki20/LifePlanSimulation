@@ -1,24 +1,24 @@
 // 訪問者の年齢、性別、収入、職業、勇退年齢
 // 性別は、0:男性、1:女性、3:その他
 // 職業は、0:自営業、1:会社員、2:専業主婦
-let userAge = 50;
+let userAge = 35;
 let userSex = 0;
-let userIncome = 700;
+let userIncome = 500;
 let userBusiness = 1;
 let userRetireAge = 70;
 
 // spouseは配偶者、0:あり、0:なし
-let spouse = 1;
-let spouseAge = 65;
+let spouse = 0;
+let spouseAge = 30;
 // let spouseSex = 0;
-let spouseIncome = 600;
+let spouseIncome = 300;
 let spouseBusiness = 1;
-let spouseRetireAge = 70;
+let spouseRetireAge = 60;
 
-let childeNumber = 2;
+let childeNumber = 1;
 let childeAgeList = [];
-childeAgeList[0] = 21;
-childeAgeList[1] = 17;
+childeAgeList[0] = 5;
+childeAgeList[1] = 5;
 
 // houseは、0:賃貸、1:持ち家
 // 家賃(住居費返済額)、ローン返済年数
@@ -28,11 +28,11 @@ let houseCostMonth = 25;
 let houseLoanYears = 30;
 
 // 通信費、生活費、保険料、水道光熱費、教育費
-let communicationCostMonth= 3;
+let communicationCostMonth= 5;
 let lifeCostMonth = 20;
 let insuranceCostMonth = 3;
 let utilityCostMonth = 5; 
-let educationCostMonth = 17;
+let educationCostMonth = 5;
 
 // 貯蓄可能額、退職金、現在の貯金額
 let savingsPossibleMonth = 10;
@@ -109,7 +109,7 @@ if (house === 0) {
 // 貯蓄残高の計算関数
 const savingsCal = () => {
   let savings = income - totalCost;
-  if (savings <= savingsPossible) {
+  if (savings <= savingsPossibleYear) {
     nowSavings += savings;
     savingsList.push(Math.round(nowSavings));
   } else {
@@ -193,35 +193,13 @@ for (i = userAge; i < 90; i++) {
       }
 
     } else if ((userBusiness !== 0) && (spouseBusiness !== 0)) {
-      if ((i < 65) && (spouseAge < 65)) {
+      if (i < 65) {
         income = userIncome + spouseIncome;
         incomeList.push(income);
         userIncome *= 1.02;
         spouseIncome *= 1.02;
         savingsCal();
-      } else if ((i === 65) && (spouseAge < 65)) {
-        if (userBusiness === 1) {
-          income = severancePay + spouseIncome;
-          incomeList.push(income);
-          spouseIncome *= 1.02;
-          savingsRetireCal();
-        } else if (userBusiness === 2) {
-          income = userIncome + spouseIncome;
-          incomeList.push(income);
-          userIncome *= 1.02;
-          spouseIncome *= 1.02;
-          savingsCal();
-        }
-      } else if ((65 < i) && (spouseAge < 65)) {
-        income = pension[userAge] + spouseIncome;
-        incomeList.push(income);
-        spouseIncome *= 1.02;
-        savingsCal();
-      } else if ((65 < i) && (spouseAge === 65)) {
-        income = pension[userBusiness] + spouseIncome;
-        incomeList.push(income);
-        savingsCal();
-      } else if ((i === 65) && (spouseAge === 65)) {
+      } else if (i ===65) {
         if (userBusiness === 1) {
           income = severancePay + spouseIncome;
           incomeList.push(income);
@@ -231,31 +209,74 @@ for (i = userAge; i < 90; i++) {
           incomeList.push(income);
           savingsCal();
         }
-      } else if ((i < 65) && (spouseAge === 65)) {
-        income = userIncome + spouseIncome;
-        incomeList.push(income);
-        userIncome *= 1.02;
-        savingsCal();
-      } else if ((i < 65) && (65 < spouseAge)) {
-        income = userIncome + pension[spouseBusiness];
-        incomeList.push(income);
-        userIncome *= 1.02;
-        savingsCal();
-      } else if ((i === 65) && (65 < spouseAge)) {
-        if (userBusiness === 1) {
-          income = severancePay + pension[spouseBusiness];
-          incomeList.push(income);
-          savingsRetireCal();
-        } else if (userBusiness === 2) {
-          income = userIncome + pension[spouseBusiness];
-          incomeList.push(income);
-          savingsCal();
-        }
-      } else if ((65 < i) && (65 < spouseAge)) {
+      } else if (65 < i) {
         income = pension[userBusiness] + pension[spouseBusiness];
         incomeList.push(income);
         savingsCal();
       }
+      // if ((i < 65) && (spouseAge < 65)) {
+      //   income = userIncome + spouseIncome;
+      //   incomeList.push(income);
+      //   userIncome *= 1.02;
+      //   spouseIncome *= 1.02;
+      //   savingsCal();
+      // } else if ((i === 65) && (spouseAge < 65)) {
+      //   if (userBusiness === 1) {
+      //     income = severancePay + spouseIncome;
+      //     incomeList.push(income);
+      //     spouseIncome *= 1.02;
+      //     savingsRetireCal();
+      //   } else if (userBusiness === 2) {
+      //     income = userIncome + spouseIncome;
+      //     incomeList.push(income);
+      //     userIncome *= 1.02;
+      //     spouseIncome *= 1.02;
+      //     savingsCal();
+      //   }
+      // } else if ((65 < i) && (spouseAge < 65)) {
+      //   income = pension[userBusiness] + spouseIncome;
+      //   incomeList.push(income);
+      //   spouseIncome *= 1.02;
+      //   savingsCal();
+      // } else if ((65 < i) && (spouseAge === 65)) {
+      //   income = pension[userBusiness] + spouseIncome;
+      //   incomeList.push(income);
+      //   savingsCal();
+      // } else if ((i === 65) && (spouseAge === 65)) {
+      //   if (userBusiness === 1) {
+      //     income = severancePay + spouseIncome;
+      //     incomeList.push(income);
+      //     savingsRetireCal();
+      //   } else if (userBusiness === 2) {
+      //     income = userIncome + spouseIncome;
+      //     incomeList.push(income);
+      //     savingsCal();
+      //   }
+      // } else if ((i < 65) && (spouseAge === 65)) {
+      //   income = userIncome + spouseIncome;
+      //   incomeList.push(income);
+      //   userIncome *= 1.02;
+      //   savingsCal();
+      // } else if ((i < 65) && (65 < spouseAge)) {
+      //   income = userIncome + pension[spouseBusiness];
+      //   incomeList.push(income);
+      //   userIncome *= 1.02;
+      //   savingsCal();
+      // } else if ((i === 65) && (65 < spouseAge)) {
+      //   if (userBusiness === 1) {
+      //     income = severancePay + pension[spouseBusiness];
+      //     incomeList.push(income);
+      //     savingsRetireCal();
+      //   } else if (userBusiness === 2) {
+      //     income = userIncome + pension[spouseBusiness];
+      //     incomeList.push(income);
+      //     savingsCal();
+      //   }
+      // } else if ((65 < i) && (65 < spouseAge)) {
+      //   income = pension[userBusiness] + pension[spouseBusiness];
+      //   incomeList.push(income);
+      //   savingsCal();
+      // }
 
     }
   } else if (spouse === 1) {
@@ -264,7 +285,7 @@ for (i = userAge; i < 90; i++) {
       income = userSelfemployIncomeList[count];
       incomeList.push(income);
       savingsCal();
-    } else if (userBusiness !== 1) {
+    } else if (userBusiness !== 0) {
       if (i < 65) {
         income = userIncome;
         incomeList.push(income);
