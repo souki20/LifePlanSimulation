@@ -296,9 +296,21 @@
 let leftMax = incomeList.concat(totalCostList).reduce(function(a,b) {
   return Math.max(a,b);
 })
+let rightMax = 0;
 let savingsListMax = savingsList.reduce(function(a,b) {
   return Math.max(a,b);
 })
 let savingsListMin = savingsList.reduce(function(a,b) {
   return Math.min(a,b);
 })
+
+if (savingsListMin < 0) {
+  savingsListMin = -(savingsListMin);
+  if (savingsListMax < savingsListMin) {
+    rightMax = savingsListMin;
+  } else {
+    rightMax = savingsListMax;
+  }
+} else {
+  rightMax = savingsListMax;
+}
