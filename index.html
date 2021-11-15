@@ -8,16 +8,16 @@
 </head>
 <body>
   <h1>ライフプランの診断結果は？</h1>
-  <form>
+  <form name="formItem">
     <div>
-      <label for="age">年齢：</label>
-      <input type="text" id="age" name="sex" required>
+      <label for="userAge">年齢：</label>
+      <input type="text" name="userAge" required>
     </div>
-    <div>
-      <label for="sex">性別：</label>
-      <label><input type="radio" name="sex" required>男性</label>
-      <label><input type="radio" name="sex" required>女性</label>
-      <label><input type="radio" name="sex" required>その他</label>
+    <!-- <div>
+      <label for="userSex">性別：</label>
+      <label><input type="radio" name="userSex" required>男性</label>
+      <label><input type="radio" name="userSex" required>女性</label>
+      <label><input type="radio" name="userSex" required>その他</label>
     </div>
     <div>
       <label for="userBusiness">職業：</label>
@@ -116,15 +116,20 @@
     <div>
       <label for="nowSavings">現在の貯金：</label>
       <input type="text" name="nowSavings">
-    </div>
+    </div> -->
 
-    <div>
-      <input type="submit" value="グラフを作成">
-    </div>
+    <!-- <div>
+      <input type="submit" id="submit" value="グラフを作成">
+    </div> -->
+
+    
   </form>
-  <canvas  id="myChart">not supported...</canvas>
+  
+  <div>
+    <button id="submit">グラフを作成</button>
+  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  <script src="./index.js"></script>
+  <script src="./JavaScript/dom.js"></script>
+  <script src="./JavaScript/index.js"></script>
 </body>
 </html>
