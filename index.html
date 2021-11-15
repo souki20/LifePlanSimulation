@@ -8,6 +8,120 @@
 </head>
 <body>
   <h1>ライフプランの診断結果は？</h1>
+  <form>
+    <div>
+      <label for="age">年齢：</label>
+      <input type="text" id="age" name="sex" required>
+    </div>
+    <div>
+      <label for="sex">性別：</label>
+      <label><input type="radio" name="sex" required>男性</label>
+      <label><input type="radio" name="sex" required>女性</label>
+      <label><input type="radio" name="sex" required>その他</label>
+    </div>
+    <div>
+      <label for="userBusiness">職業：</label>
+      <label><input type="radio" name="userBusiness" required>自営業</label>
+      <label><input type="radio" name="userBusiness" required>会社員</label>
+      <label><input type="radio" name="userBusiness" required>その他</label>
+    </div>
+    <div>
+      <label for="userIncome">収入：</label>
+      <input type="text" name="userIncome" required>
+    </div>
+    <div>
+      <label for="userRetireAge">勇退年齢：</label>
+      <input type="text" name="userRetireAge">
+    </div>
+    <div>
+      <label for="spouse">配偶者の有無：</label>
+      <label><input type="radio" name="spouse" required>あり</label>
+      <label><input type="radio" name="spouse" required>なし</label>
+    </div>
+    <div>
+      <label for="spouseAge">配偶者の年齢：</label>
+      <input type="text" name="spouseAge">
+    </div>
+    <div>
+      <label for="spouseBusiness">配偶者の職業：</label>
+      <label><input type="radio" name="spouseBusiness" required>自営業</label>
+      <label><input type="radio" name="spouseBusiness" required>会社員</label>
+      <label><input type="radio" name="spouseBusiness" required>その他</label>
+    </div>
+    <div>
+      <label for="spouseIncome">配偶者の収入：</label>
+      <input type="text" name="spouseIncome">
+    </div>
+    <div>
+      <label for="spouseRetireAge">配偶者の勇退年齢：</label>
+      <input type="text" name="spouseRetireAge">
+    </div>
+    <div>
+      <label for="childeNumber">子供の人数：</label>
+      <input type="text" name="childeNumber" required>
+    </div>
+    <div>
+      <label for="childeAge">子供１の年齢：</label>
+      <input type="text" name="childeAge">
+    </div>
+    <div>
+      <label for="childeAge">子供２の年齢：</label>
+      <input type="text" name="childeAge">
+    </div>
+    <div>
+      <label for="house">住居：</label>
+      <label><input type="radio" name="house" required>賃貸</label>
+      <label><input type="radio" name="house" required>持ち家</label>
+    </div>
+    <div>
+      <label for="houseCostMonth">家賃（月額）：</label>
+      <input type="text" name="houseCostMonth">
+    </div>
+    <div>
+      <label for="houseRepaymentMonth">返済額（月額）：</label>
+      <input type="text" name="houseRepaymentMonth">
+    </div>
+    <div>
+      <label for="houseLoanYears">残りのローン年数：</label>
+      <input type="text" name="houseRepaymentMonth">
+    </div>
+    <div>
+      <label for="communicationCostMonth">通信費（月額）：</label>
+      <input type="text" name="communicationCostMonth">
+    </div>
+    <div>
+      <label for="lifeCostMonth">生活費（月額）：</label>
+      <input type="text" name="lifeCostMonth">
+    </div>
+    <div>
+      <label for="insuranceCostMonth">保険料（月額）：</label>
+      <input type="text" name="insuranceCostMonth">
+    </div>
+    <div>
+      <label for="utilityCostMonth">水道光熱費（月額）：</label>
+      <input type="text" name="utilityCostMonth">
+    </div>
+    <div>
+      <label for="educationCostMonth">教育費（月額）：</label>
+      <input type="text" name="educationCostMonth">
+    </div>
+    <div>
+      <label for="savingsPossibleMonth">毎月の貯蓄額：</label>
+      <input type="text" name="savingsPossibleMonth">
+    </div>
+    <div>
+      <label for="severancePay">退職金：</label>
+      <input type="text" name="severancePay">
+    </div>
+    <div>
+      <label for="nowSavings">現在の貯金：</label>
+      <input type="text" name="nowSavings">
+    </div>
+
+    <div>
+      <input type="submit" value="グラフを作成">
+    </div>
+  </form>
   <canvas  id="myChart">not supported...</canvas>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>

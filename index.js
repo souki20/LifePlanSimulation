@@ -24,7 +24,7 @@ childeAgeList[1] = 5;
 // 家賃(住居費返済額)、ローン返済年数
 let house = 0;
 let houseCostMonth = 25;
-// let houseRepaymentMonth = 20;
+let houseRepaymentMonth = 20;
 let houseLoanYears = 30;
 
 // 通信費、生活費、保険料、水道光熱費、教育費
@@ -60,7 +60,7 @@ let savings = 0;
 
 // 月額→年額
 let houseCostYear = houseCostMonth * 12;
-// let houseRepaymentYear = houseRepaymentMonth * 12;
+let houseRepaymentYear = houseRepaymentMonth * 12;
 let communicationCostYear = communicationCostMonth * 12;
 let lifeCostYear = lifeCostMonth * 12;
 let insuranceCostYear = insuranceCostMonth * 12;
@@ -96,7 +96,7 @@ if (house === 0) {
   let x = 0;
   for (i = userAge; i < 90; i++) {
     if (x < houseLoanYears) {
-      houseCostList.push(houseCostYear);
+      houseCostList.push(houseRepaymentYear);
       x++;
     } else {
       houseCostList.push(0);
