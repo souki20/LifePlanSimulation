@@ -5,9 +5,9 @@ const submitForm = () => {
 }
 
 
+var forms = document.forms.formItem;
 
 const getData = () => {
-  var forms = document.forms.formItem;
   const userAge2 = forms.userAge.value;
   return console.log(userAge2);
   // return userAge2;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
   <title>ライフプラン</title>
 </head>
 <body>
@@ -19,54 +20,48 @@
       <label><input type="radio" name="userSex" required>女性</label>
       <label><input type="radio" name="userSex" required>その他</label>
     </div>
-    <div>
+    <div onchange="userBusinessChange()">
       <label for="userBusiness">職業：</label>
-      <label><input type="radio" name="userBusiness" required>自営業</label>
-      <label><input type="radio" name="userBusiness" required>会社員</label>
-      <label><input type="radio" name="userBusiness" required>その他</label>
+      <label><input type="radio" name="userBusiness" value="0" required>自営業</label>
+      <label><input type="radio" name="userBusiness" value="1" required>会社員</label>
+      <label><input type="radio" name="userBusiness" value="2" required>その他</label>
+    </div>
+    <div id="user-retire-age" class="hide">
+      <label for="userRetireAge">勇退年齢：</label>
+      <input id="userRetireAge" name="userRetireAge">
     </div>
     <div>
       <label for="userIncome">収入：</label>
       <input type="text" name="userIncome" required>
     </div>
-    <div>
-      <label for="userRetireAge">勇退年齢：</label>
-      <input type="text" name="userRetireAge">
-    </div>
-    <div>
+    <div onchange="spouseChange()">
       <label for="spouse">配偶者の有無：</label>
-      <label><input type="radio" name="spouse" required>あり</label>
-      <label><input type="radio" name="spouse" required>なし</label>
+      <label><input type="radio" name="spouse" value="0" required>あり</label>
+      <label><input type="radio" name="spouse" value="1" required>なし</label>
     </div>
-    <div>
-      <label for="spouseAge">配偶者の年齢：</label>
-      <input type="text" name="spouseAge">
+    <div id="spouse" class="hide">
+      <div>
+        <label for="spouseAge">配偶者の年齢：</label>
+        <input type="text" name="spouseAge">
+      </div>
+      <div onchange="spouseBusinessChange()">
+        <label for="spouseBusiness">配偶者の職業：</label>
+        <label><input type="radio" name="spouseBusiness" value="0" required>自営業</label>
+        <label><input type="radio" name="spouseBusiness" value="1" required>会社員</label>
+        <label><input type="radio" name="spouseBusiness" value="2" required>その他</label>
+      </div>
+      <div id="spouse-retire-age" class="hide">
+        <label for="spouseRetireAge">配偶者の勇退年齢：</label>
+        <input type="text" name="spouseRetireAge">
+      </div>
+      <div>
+        <label for="spouseIncome">配偶者の収入：</label>
+        <input type="text" name="spouseIncome">
+      </div>
     </div>
-    <div>
-      <label for="spouseBusiness">配偶者の職業：</label>
-      <label><input type="radio" name="spouseBusiness" required>自営業</label>
-      <label><input type="radio" name="spouseBusiness" required>会社員</label>
-      <label><input type="radio" name="spouseBusiness" required>その他</label>
-    </div>
-    <div>
-      <label for="spouseIncome">配偶者の収入：</label>
-      <input type="text" name="spouseIncome">
-    </div>
-    <div>
-      <label for="spouseRetireAge">配偶者の勇退年齢：</label>
-      <input type="text" name="spouseRetireAge">
-    </div>
-    <div>
-      <label for="childeNumber">子供の人数：</label>
+    <div id="childe-number" onchange="childeNumberChange()">
+      <label for="childeNumber">子供の人数(居ない場合は0)：</label>
       <input type="text" name="childeNumber" required>
-    </div>
-    <div>
-      <label for="childeAge">子供１の年齢：</label>
-      <input type="text" name="childeAge">
-    </div>
-    <div>
-      <label for="childeAge">子供２の年齢：</label>
-      <input type="text" name="childeAge">
     </div>
     <div>
       <label for="house">住居：</label>
@@ -130,5 +125,6 @@
   </div>
 
   <script src="./JavaScript/dom.js"></script>
+  <script src="./JavaScript/change.js"></script>
 </body>
 </html>
