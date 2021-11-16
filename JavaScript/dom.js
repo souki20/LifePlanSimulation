@@ -24,10 +24,14 @@ const clickEvent = () => {
   display();
 }
 
+const pageMove = () => {
+  window.location.href='graph.html'
+}
+
 
 const submit = document.getElementById('submit');
 submit.addEventListener('click', submitForm);
-submit.addEventListener('click', location.href='[graph.html]')
+submit.addEventListener('click', pageMove);
 // submit.addEventListener('click', (e) => {
 //   e.preventDefault();
   
