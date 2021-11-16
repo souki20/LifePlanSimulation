@@ -33,7 +33,7 @@ const childeNumberChange = () => {
   const childeNumber = forms.childeNumber.value;
   let element = document.getElementById('childe-number');
   
-  if (0 < x) {
+  if (x == 1) {
     let element2 = document.getElementById('childeNumber');
     element2.remove();
     x = 0;
