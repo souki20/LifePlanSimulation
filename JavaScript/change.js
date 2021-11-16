@@ -1,10 +1,17 @@
 const userBusinessChange = () => {
   const userBusiness = forms.userBusiness.value;
-  let element = document.getElementById('user-retire-age');
+  let element0 = document.getElementById('userRetireAge');
+  let element1 = document.getElementById('severancePay');
+
   if (userBusiness == 0) {
-    element.classList.remove('hide');
+    element1.classList.add('hide');
+    element0.classList.remove('hide');
+  } else if (userBusiness == 1) {
+    element0.classList.add('hide');
+    element1.classList.remove('hide');
   } else {
-    element.classList.add('hide');
+    element0.classList.add('hide');
+    element1.classList.add('hide');
   }
 }
 
@@ -55,3 +62,17 @@ const childeNumberChange = () => {
   }  
 }
 
+
+const houseChange = () => {
+  const house = forms.house.value;
+  let element0 = document.getElementById('house0');
+  let element1 = document.getElementById('house1');
+
+  if (house == 0) {
+    element1.classList.add('hide');
+    element0.classList.remove('hide');
+  } else {
+    element0.classList.add('hide');
+    element1.classList.remove('hide');
+  }
+}

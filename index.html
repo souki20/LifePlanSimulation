@@ -26,10 +26,15 @@
       <label><input type="radio" name="userBusiness" value="1" required>会社員</label>
       <label><input type="radio" name="userBusiness" value="2" required>その他</label>
     </div>
-    <div id="user-retire-age" class="hide">
+    <div id="userRetireAge" class="hide">
       <label for="userRetireAge">勇退年齢：</label>
       <input id="userRetireAge" name="userRetireAge">
     </div>
+    <div id="severancePay" class="hide">
+      <label for="severancePay">退職金：</label>
+      <input type="text" name="severancePay">
+    </div>
+
     <div>
       <label for="userIncome">収入：</label>
       <input type="text" name="userIncome" required>
@@ -63,22 +68,24 @@
       <label for="childeNumber">子供の人数(居ない場合は0)：</label>
       <input type="text" name="childeNumber" required>
     </div>
-    <div>
+    <div onchange="houseChange()">
       <label for="house">住居：</label>
-      <label><input type="radio" name="house" required>賃貸</label>
-      <label><input type="radio" name="house" required>持ち家</label>
+      <label><input type="radio" name="house" value="0" required>賃貸</label>
+      <label><input type="radio" name="house" value="1" required>持ち家</label>
     </div>
-    <div>
+    <div id="house0" class="hide">
       <label for="houseCostMonth">家賃（月額）：</label>
       <input type="text" name="houseCostMonth">
     </div>
-    <div>
-      <label for="houseRepaymentMonth">返済額（月額）：</label>
-      <input type="text" name="houseRepaymentMonth">
-    </div>
-    <div>
-      <label for="houseLoanYears">残りのローン年数：</label>
-      <input type="text" name="houseRepaymentMonth">
+    <div id="house1" class="hide">
+      <div>
+        <label for="houseRepaymentMonth">返済額（月額）：</label>
+        <input type="text" name="houseRepaymentMonth">
+      </div>
+      <div>
+        <label for="houseLoanYears">残りのローン年数：</label>
+        <input type="text" name="houseRepaymentMonth">
+      </div>  
     </div>
     <div>
       <label for="communicationCostMonth">通信費（月額）：</label>
@@ -103,10 +110,6 @@
     <div>
       <label for="savingsPossibleMonth">毎月の貯蓄額：</label>
       <input type="text" name="savingsPossibleMonth">
-    </div>
-    <div>
-      <label for="severancePay">退職金：</label>
-      <input type="text" name="severancePay">
     </div>
     <div>
       <label for="nowSavings">現在の貯金：</label>
