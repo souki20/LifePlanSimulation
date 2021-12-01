@@ -1,45 +1,3 @@
-// 訪問者の年齢、性別、収入、職業、勇退年齢
-// 性別は、0:男性、1:女性、3:その他
-// 職業は、0:自営業、1:会社員、2:専業主婦
-let userAge = 35;
-let userSex = 0;
-let userIncome = 500;
-let userBusiness = 1;
-let userRetireAge = 70;
-
-// spouseは配偶者、0:あり、0:なし
-let spouse = 0;
-let spouseAge = 30;
-// let spouseSex = 0;
-let spouseIncome = 300;
-let spouseBusiness = 1;
-let spouseRetireAge = 60;
-
-let childeNumber = 1;
-let childeAgeList = [];
-childeAgeList[0] = 5;
-childeAgeList[1] = 5;
-
-// houseは、0:賃貸、1:持ち家
-// 家賃(住居費返済額)、ローン返済年数
-let house = 0;
-let houseCostMonth = 25;
-let houseRepaymentMonth = 20;
-let houseLoanYears = 30;
-
-// 通信費、生活費、保険料、水道光熱費、教育費
-let communicationCostMonth= 5;
-let lifeCostMonth = 20;
-let insuranceCostMonth = 3;
-let utilityCostMonth = 5; 
-let educationCostMonth = 5;
-
-// 貯蓄可能額、退職金、現在の貯金額
-let savingsPossibleMonth = 10;
-let severancePay = 200;
-let nowSavings = 100;
-
-
 // 年数、収入リスト、全教育費リスト
 // 全出費リスト、貯金残高、住居費リスト、保険料リスト
 let yearList = [];
@@ -57,7 +15,9 @@ let totalCost = 0;
 let income = 0;
 let savings = 0;
 
-
+if (educationCostMonth =="") {
+  educationCostMonth = 0;
+}
 // 月額→年額
 let houseCostYear = houseCostMonth * 12;
 let houseRepaymentYear = houseRepaymentMonth * 12;
@@ -378,7 +338,7 @@ const graphMain = () => {
           suggestedMin: -(leftMax),
           suggestedMax: leftMax,
           callback: function(value, index, values) {
-            return value + '(万円)';
+            return value + '(　万円)';
           },
         },
         scaleLabel: {
@@ -396,7 +356,7 @@ const graphMain = () => {
           suggestedMin: -(rightMax),
           suggestedMax: rightMax,
           callback: function(value, index, values) {
-            return value + '(万円)';
+            return value + '(　万円)';
           }
         },
         scaleLabel: {

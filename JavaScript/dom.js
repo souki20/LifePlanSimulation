@@ -1,112 +1,49 @@
-const submitForm = () => {
-  var forms = document.forms.formItem;
-  const userAge2 = forms.userAge.value;
-  return console.log(userAge2);
-}
-
-
 var forms = document.forms.formItem;
 
-const getData = () => {
-  const userAge2 = forms.userAge.value;
-  return console.log(userAge2);
-  // return userAge2;
+const resetButton = () => {
+  let userSexElements = document.getElementsByName('userSex');
+  let userBusinessElements = document.getElementsByName('userBusiness');
+  let spouseElements = document.getElementsByName('spouse');
+  let spouseBusinessElements = document.getElementsByName('spouseBusiness')
+  let houseElements = document.getElementsByName('house');
+
+  forms.userAge.value = "";
+  for (i=0; i<userSexElements.length; i++) {
+    userSexElements[i].checked = false;
+  }
+  for (i=0; i<userBusinessElements.length; i++) {
+    userBusinessElements[i].checked = false;
+  }
+  forms.userRetireAge.value = "";
+  forms.severancePay.value = "";
+  forms.userIncome.value = "";
+  for (i=0; i<spouseElements.length; i++) {
+    spouseElements[i].checked = false;
+  }
+  forms.spouseAge.value = "";
+  for (i=0; i<spouseBusinessElements.length; i++) {
+    spouseBusinessElements[i].checked = false;
+  }
+  forms.spouseRetireAge.value = "";
+  forms.spouseIncome.value = "";
+  forms.childeNumber.value = "";
+  for (i=0; i<houseElements.length; i++) {
+    houseElements[i].checked = false;
+  }
+  forms.houseCostMonth.value = "";
+  forms.houseRepaymentMonth.value = "";
+  forms.houseLoanYears.value = "";
+  forms.communicationCostMonth.value = "";
+  forms.lifeCostMonth.value = "";
+  forms.insuranceCostMonth.value = "";
+  forms.utilityCostMonth.value = "";
+  forms.educationCostMonth.value = "";
+  forms.savingsPossibleMonth.value = "";
+  forms.nowSavings.value = "";
+
+  location.reload();
 }
 
 
-const display = (userAge) => {
-  console.log('test');
-  console.log(userAge);
-}
-
-const clickEvent = () => {
-  getData();
-  display();
-}
-
-const pageMove = () => {
-  window.location.href='graph.html'
-}
-
-
-const submit = document.getElementById('submit');
-submit.addEventListener('click', submitForm);
-submit.addEventListener('click', pageMove);
-// submit.addEventListener('click', (e) => {
-//   e.preventDefault();
-  
-//   let forms = document.forms.formItem;
-//   userAge = forms.userAge.value;
-//   // console.log(userAge);
-
-//   // document.location.reload();
-//   return userAge;
-// })
-
-
-
-
-// const asyncAwaitFunc = async () => {
-//   submit.addEventListener('click', (e) => {
-//   e.preventDefault();
-
-//   // console.log('test');
-  
-//   let forms = document.forms.formItem;
-//   userAge = forms.userAge.value;
-//   // console.log(userAge);
-//   // document.location.reload();
-//   return userAge;
-
-//   }).then((userAge) => {
-//     return console.log(userAge);
-//   }).catch(() => {
-//     return console.log('失敗しました');
-//   })
-// }
-// asyncAwaitFunc();
-
-
-// やりたいこと
-// クリックされたら変数に値を代入して
-// クリックされるまではグラフを作成しない
-// ページをリロードする
-
-
-
-// const getGitUsername = async() => {
-//   const message = 'GitのユーザーIDは、';
-//   const url = 'https://api.github.com/users/deatiger';
-//   const json = await fetch(url)
-
-//   .then(res => {
-//     console.log('非同期処理成功')
-//     return res.json()
-//   }).catch(error => {
-//     console.log('非同期処理失敗')
-//     return null;
-//   })
-
-//   const userName = json.login;
-//   console.log(message + userName);
-// }
-// getGitUsername();
-
-
-// const getname = () => {
-//   const message = 'GitのユーザーIDは、';
-//   const url = 'https://api.github.com/users/deatiger';
-//   const json = fetch(url)
-
-//   if(res) {
-//     console.log('成功');
-//     return res.json();
-//   } else {
-//     console.log('失敗');
-//     return null;
-//   }
-
-//   const userName = json.login;
-//   console.log(message + userName);
-// }
-// getname();
+const reset = document.getElementById('reset');
+reset.addEventListener('click', resetButton);
