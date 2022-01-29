@@ -1,0 +1,12 @@
+h1 {
+  font-size: 2rem;
+  margin: 30px 3vw;
+}
+
+a {
+  margin: 50px 30px;
+}
+
+a:hover {
+  opacity: 0.5;
+}
