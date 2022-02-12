@@ -8,7 +8,7 @@
 
 
 ### URL
-http://lifeplancal.php.xdomain.jp/
+https://lifeplan-tool.herokuapp.com/index.php
 
 
 ### 使用技術
