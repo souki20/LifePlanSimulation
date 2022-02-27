@@ -8,7 +8,7 @@
 
 
 ### URL
-https://lifeplan-tool.herokuapp.com/index.php
+http://createwebkato.com/
 
 
 ### 使用技術
